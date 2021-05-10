@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LoginPageModule" parallel="tests" >
+       <!-- <listeners>
+       thread-count="2"
+              <listener class-name="utility.Listener"></listener>
+       </listeners>  --> 
+  	<test name="FB Login">
+		<classes>
+		<class name="com.Testscripts.FbLoginTst" />
+		</classes>
+  	</test> <!-- Test -->
+  	
+  	<!-- <test name="Random Test1">
+		<classes>
+       		<class name="com.Testscripts.FbLoginTst" />
+		</classes> 
+  	</test> -->
+</suite> <!-- Suite -->
