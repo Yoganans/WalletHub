@@ -25,7 +25,7 @@ public class FbLoginTest extends BaseTest
 
 		driver.get(properties.getProperty("url"));
 		fbLoginObj.fBLogin(properties.getProperty("username"), properties.getProperty("password"));
-		
+
 		fbhomePageObj.toPostStatusMessage(properties.getProperty("FbstatusMessage"));
 		fbhomePageObj.tovalidateThePostMessage(properties.getProperty("FbstatusMessage"));
 	}

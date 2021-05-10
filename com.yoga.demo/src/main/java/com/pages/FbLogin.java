@@ -16,6 +16,8 @@ public class FbLogin extends BasePage{
 	private String faceBookImageIcon=".//img[@alt='Facebook']";
 	private String xpathForLoginButton=".//button[@name='login']";
 	
+	private String xpathForStatusMessage=".//span[contains(text(),'on your mind')]";
+	
 		 //Below method is for Facebook Login
 	public void fBLogin(String username, String password){
 		try {
@@ -27,9 +29,12 @@ public class FbLogin extends BasePage{
 			UIHelper.clickElement(driver, xpathForLoginButton);
 			UIHelper.waitFor();
 			UIHelper.waitFor();
+			if(UIHelper.toCheckTheStringIsPresent(driver, xpathForStatusMessage))
 			extentTest.log(Status.PASS, "Facebook logged in Sucessfully");
+			else
+				extentTest.log(Status.FAIL, "Facebook log in is NOT Sucessfully");
 		} catch (Exception e) {
-			extentTest.log(Status.FAIL, "Facebook log in is NOT Sucessfull");
+			e.printStackTrace();
 		}
 		
 	}

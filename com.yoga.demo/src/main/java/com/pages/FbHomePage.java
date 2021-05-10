@@ -28,12 +28,14 @@ public class FbHomePage extends BasePage{
 			UIHelper.waitForVisibilityOfElement(driver, xpathForStatusMessage);
 			UIHelper.clickElement(driver, xpathForStatusMessage);
 			
-			int count=UIHelper.switchWindowByHandles(driver);
-			System.out.println(count);
-			UIHelper.waitForVisibilityOfElement(driver, xpathForCreatePostWindow);
+			UIHelper.waitFor();
+			UIHelper.switchToActiveElement(driver).sendKeys(MessageType);;
+			/*int count=UIHelper.switchWindowByHandles(driver);
+			System.out.println(count);*/
+			//UIHelper.waitForVisibilityOfElement(driver, xpathForCreatePostWindow);
 			
 			//UIHelper.javascriptClick(driver, xpathForStatusMessageInCreatePostWindow);
-			UIHelper.typeUsingJavaScript(driver, xpathForStatusMessageInCreatePostWindow, MessageType);
+			//UIHelper.typeUsingJavaScript(driver, xpathForStatusMessageInCreatePostWindow, MessageType);
 			//UIHelper.clickElement(driver, xpathForStatusMessageInCreatePostWindow);
 			//UIHelper.sendkeysToElement(driver, xpathForStatusMessageInCreatePostWindow, MessageType);
 			UIHelper.waitFor();
@@ -50,7 +52,11 @@ public class FbHomePage extends BasePage{
 		try {
 			UIHelper.waitForVisibilityOfElement(driver, xpathToGetThePostedMessage);
 			String actualMessage=UIHelper.getText(driver, xpathToGetThePostedMessage);
-			Assert.assertEquals(expectedMessage, actualMessage, "Posted Message is not same - current Message displaying is " +actualMessage);
+			if(expectedMessage.equalsIgnoreCase(actualMessage)){
+				extentTest.log(Status.PASS, "Posted Message is same and is displayed in the post");
+			}else{
+				extentTest.log(Status.FAIL, "Posted Message is Not same and the displayed Message is " +actualMessage);
+			}
 		} catch (Exception e) {
 			extentTest.log(Status.FAIL, "Posted Message is not same");
 		}

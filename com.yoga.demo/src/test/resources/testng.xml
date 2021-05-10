@@ -7,7 +7,7 @@
        </listeners>  --> 
   	<test name="FB Login">
 		<classes>
-		<class name="com.Testscripts.FbLoginTst" />
+		<class name="com.Testscripts.FbLoginTest" />
 		</classes>
   	</test> <!-- Test -->
   	

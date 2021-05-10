@@ -145,5 +145,21 @@ public class UIHelper {
 			Set <String> totalWindows = driver.getWindowHandles();
 			int totalWindowCount = totalWindows.size();
 			return totalWindowCount;
-}
+		}
+		
+		public static WebElement switchToActiveElement(WebDriver driver){
+			return driver.switchTo().activeElement();
+		}
+		
+		public static boolean toCheckTheStringIsPresent(WebDriver driver, String locator){
+			return driver.findElement(By.xpath(locator)).isDisplayed();
+		}
+		
+		public static boolean toCheckTheStringIsSelected(WebDriver driver, String locator){
+			return driver.findElement(By.xpath(locator)).isSelected();
+		}
+		
+		public static boolean toCheckTheStringIsEnabled(WebDriver driver, String locator){
+			return driver.findElement(By.xpath(locator)).isEnabled();
+		}
 }
